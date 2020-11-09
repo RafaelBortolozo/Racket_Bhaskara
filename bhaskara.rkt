@@ -58,18 +58,18 @@
 
 ;Adiciona os resultados no banco de dados SQLite
 (require db)
-(define connect_SQLite
+(define SQLite
   (sqlite3-connect #:database "db/bhaskara.db"
                    #:mode 'create) ;;permite escrita/leitura do banco
 )
 
 ;inserção
-(query-exec db
-           "INSERT INTO valores (a, b, c, delta, x1, x2, Vx, Vy) VALUES (~a, ~a, ~a, ~a, ~a, ~a, ~a, ~a);"  a b c delta x1 x2 Vx Vy
+(query-exec SQLite
+           "INSERT INTO valores (a, b, c, delta, x1, x2, Vx, Vy) VALUES (?, ?, ?, ?, ?, ?, ?, ?);"  a b c delta x1 x2 Vx Vy
 )
 
 ;impressão
-(query-exec db
+(query SQLite
             "SELECT * FROM valores;"
 )
 
