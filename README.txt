@@ -11,3 +11,9 @@ https://docs.racket-lang.org/reference/Writing.html#%28def._%28%28quote._~23~25k
 Tutorial- Como instalar o SQLite (version 3)
 https://www.youtube.com/watch?v=wXEZZ2JT3-k
 
+Documentação Racket - Conexão com SQLite
+https://docs.racket-lang.org/db/index.html
+
+Banco de dados(disponível dentro da pasta "db")
+
+

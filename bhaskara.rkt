@@ -56,3 +56,20 @@
 (require 2htdp/batch-io)
 (write-file "bhaskara.txt" (format"Resultados da conta de Bhaskara:\n\nA: ~a\nB: ~a\nC: ~a\ndelta: ~a\nx1: ~a\nx2: ~a\nVx: ~a\nVy: ~a" a b c delta x1 x2 Vx Vy))
 
+;Adiciona os resultados no banco de dados SQLite
+(require db)
+(define connect_SQLite
+  (sqlite3-connect #:database "db/bhaskara.db"
+                   #:mode 'create) ;;permite escrita/leitura do banco
+)
+
+;inserção
+(query-exec db
+           "INSERT INTO valores (a, b, c, delta, x1, x2, Vx, Vy) VALUES (~a, ~a, ~a, ~a, ~a, ~a, ~a, ~a);"  a b c delta x1 x2 Vx Vy
+)
+
+;impressão
+(query-exec db
+            "SELECT * FROM valores;"
+)
+
